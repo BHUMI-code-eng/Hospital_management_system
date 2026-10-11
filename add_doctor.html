@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Doctor</title>
+    <link rel="stylesheet" 
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="header"><h2>🏥 Delight Sun Hospital</h2></div>
+    <h1>👨‍⚕️ Add New Doctor</h1>
+
+    {% if msg %}
+    <p class="msg">{{ msg }}</p>
+    {% endif %}
+
+    <div class="form-group">
+        <form method="POST">
+            <input type="text" name="name"
+            placeholder="👤 Doctor Full Name" required><br>
+
+            <input type="text" name="department"
+            placeholder="🏥 Department" required><br>
+
+            <input type="number" name="age"
+            placeholder="🎂 Age" required><br>
+
+            <input type="text" name="city"
+            placeholder="🏙️ City" required><br>
+
+            <input type="text" name="mobile"
+            placeholder="📱 Mobile Number" required><br>
+
+            <input type="number" name="fees"
+            placeholder="💰 Consultation Fees" required><br>
+
+            <input type="number" name="salary"
+            placeholder="💵 Salary" required><br>
+
+            <button type="submit">➕ Add Doctor</button>
+        </form>
+    </div>
+    <br>
+    <a href="/admin"><button class="back">⬅ Go Back</button></a>
+</div>
+</body>
+</html>

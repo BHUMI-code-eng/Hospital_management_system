@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments</title>
+    <link rel="stylesheet" 
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="header"><h2>🏥 Delight Sun Hospital</h2></div>
+    <h1>📅 Appointments</h1>
+
+    {% if msg %}
+    <p class="msg">{{ msg }}</p>
+    {% endif %}
+
+    <h3>➕ Book New Appointment</h3>
+    <div class="form-group">
+        <form method="POST">
+            <input type="text" name="patient_name"
+            placeholder="👤 Patient Name" required><br>
+
+            <input type="text" name="doctor_name"
+            placeholder="👨‍⚕️ Doctor Name" required><br>
+
+            <select name="department" style="padding:12px;
+            width:83%;border-radius:50px;
+            border:2px solid #667eea;font-size:16px;
+            margin:8px 0;outline:none;">
+                <option value="">Select Department</option>
+                <option>❤️ Cardiology</option>
+                <option>🧠 Neurology</option>
+                <option>🦴 Orthopedics</option>
+                <option>👶 Pediatrics</option>
+                <option>👁️ Ophthalmology</option>
+                <option>🦷 Dentistry</option>
+            </select><br>
+
+            <input type="date" name="date"
+            style="padding:12px;width:80%;
+            border-radius:50px;border:2px solid #667eea;
+            font-size:16px;margin:8px 0" required><br>
+
+            <button type="submit">📅 Book Appointment</button>
+        </form>
+    </div>
+
+    <h3>📋 All Appointments</h3>
+    {% if appointments %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Department</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for a in appointments %}
+        <tr>
+            <td>{{ a[0] }}</td>
+            <td>{{ a[1] }}</td>
+            <td>{{ a[2] }}</td>
+            <td>{{ a[3] }}</td>
+            <td>{{ a[4] }}</td>
+            <td>
+            {% if a[5] == 'Pending' %}
+                ⏳ Pending
+            {% else %}
+                ✅ Confirmed
+            {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p style="color:red;text-align:center;">
+    ❌ No Appointments Found!</p>
+    {% endif %}
+
+    <br>
+    <a href="/admin"><button class="back">⬅ Go Back</button></a>
+</div>
+</body>
+</html>

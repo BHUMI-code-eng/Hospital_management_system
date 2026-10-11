@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Admin Panel</h1>
+        <div class="buttons">
+            
+            <a href="patients"><button>View Patients</button></a>
+            <a href="/add_doctor"><button>Add Doctor</button></a>
+            <a href="doctors"><button>View Doctors</button></a>
+            <a href="/appointment"><button>View Appointments</button></a>
+	    <a href="/"><button class="back">⬅ Go Back</button></a>
+            <a href="/add_patient"><button>➕ Add Patient</button></a>
+    </div>
+</body>
+</html>

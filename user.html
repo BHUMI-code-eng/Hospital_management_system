@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Panel</title>
+    <link rel="stylesheet" 
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>🏥 Hospital Management System</h2>
+        </div>
+        <h1>👤 User Panel</h1>
+        <p>Welcome! What would you like to do?</p>
+        <div class="buttons">
+            <a href="/appointment"><button>📅 Book Appointment</button></a>
+            <a href="/view_appointments"><button>📋 View My Appointments</button></a>
+            <a href="/doctors"><button>👨‍⚕️ View Doctors</button></a>
+            </div>
+        <br>
+        <a href="/"><button class="back">⬅ Go Back</button></a>
+    </div>
+</body>
+</html>

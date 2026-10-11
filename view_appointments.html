@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Appointments</title>
+    <link rel="stylesheet" 
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="header"><h2>🏥 Delight Sun Hospital</h2></div>
+    <h1>📋 My Appointments</h1>
+
+    {% if appointments %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Department</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for a in appointments %}
+        <tr>
+            <td>{{ a[0] }}</td>
+            <td>{{ a[1] }}</td>
+            <td>{{ a[2] }}</td>
+            <td>{{ a[3] }}</td>
+            <td>{{ a[4] }}</td>
+            <td>
+            {% if a[5] == 'Pending' %}
+                ⏳ Pending
+            {% else %}
+                ✅ Confirmed
+            {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p style="color:red; text-align:center;">
+    ❌ No Appointments Found!</p>
+    {% endif %}
+
+    <br>
+    <a href="/user"><button class="back">⬅ Go Back</button></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Doctors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="header"><h2>🏥 Delight Sun Hospital</h2></div>
+    <h1>👨‍⚕️ Doctor Records</h1>
+
+    {% if doctors %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Mobile</th>
+            <th>Fees</th>
+            <th>Salary</th>
+        </tr>
+        {% for d in doctors %}
+        <tr>
+            <td>{{ d[0] }}</td>
+            <td>{{ d[1] }}</td>
+            <td>{{ d[2] }}</td>
+            <td>{{ d[3] }}</td>
+            <td>{{ d[4] }}</td>
+            <td>{{ d[5] }}</td>
+            <td>₹{{ d[6] }}</td>
+            <td>₹{{ d[7] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p style="color:red; text-align:center;">
+    ❌ No Doctors Found!</p>
+    {% endif %}
+
+    <br>
+    <a href="/admin"><button class="back">⬅ Go Back</button></a>
+</div>
+</body>
+</html>
